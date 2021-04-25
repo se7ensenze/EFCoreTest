@@ -6,15 +6,14 @@ namespace EntityCreateBusinessObjectTest
 {
     public class User
     {
-        public Guid Id { get; }
+        public UserId Id { get; }
         public Name Name { get; private set; }
 
         private User() { }
 
         public User(Name name)
         {
-            //Id = new UserId(Guid.NewGuid());
-            Id = Guid.NewGuid();
+            Id = new UserId(Guid.NewGuid());
             Name = name ?? throw new ArgumentException("Name must not be null");
         }
 

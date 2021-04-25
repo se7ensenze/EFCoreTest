@@ -11,17 +11,17 @@ namespace EntityCreateBusinessObjectTest
         {
             MyDbContext db = new MyDbContext();
 
-            //var newUser = new User(name: new Name("Foo", "Fighter"));
-            //db.Users.Add(newUser);
-            //db.SaveChanges();
+            var newUser = new User(name: new Name("Foo", "Fighter"));
+            db.Users.Add(newUser);
+            db.SaveChanges();
 
 
             var u1 = db.Users.Take(1).First();
-            PrintResult("Case 1", u1); //output > Could not read Name from database
+            PrintResult("Case 1", u1); //output > Read Name from database success  << Fixed
 
-            var u2 = db.Users.AsNoTracking()
-                .Take(1).First();
-            PrintResult("Case 2", u2);  //output > Read Name from database success
+            //var u2 = db.Users.AsNoTracking()
+            //    .Take(1).First();
+            //PrintResult("Case 2", u2);  //output > Read Name from database success
 
 
             Console.Read();
