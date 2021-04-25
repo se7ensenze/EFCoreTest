@@ -27,9 +27,9 @@ namespace EntityCreateBusinessObjectTest
                 .ToTable("User");
             modelBuilder.Entity<User>()
                 .HasKey(u => u.Id);
-            modelBuilder.Entity<User>()
-                .Property(u => u.Id)
-                .HasConversion(i => i.Value, id => new UserId(id));
+            //modelBuilder.Entity<User>()
+            //    .Property(u => u.Id)
+            //    .HasConversion(i => i.Value, id => new UserId(id));
             modelBuilder.Entity<User>()
                 .OwnsOne(u => u.Name, un =>
                 {

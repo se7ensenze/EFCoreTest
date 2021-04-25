@@ -15,5 +15,8 @@ namespace EntityCreateBusinessObjectTest
             Value = id;
 
         }
+
+        public override int GetHashCode() => Value.GetHashCode();
+        public override bool Equals(object obj) => obj is UserId other && Value == other.Value;
     }
 }
